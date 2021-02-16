@@ -63,7 +63,7 @@ module.exports.getAccessToken = async (event) => {
   // decode authorization code extracted from the URL query
   const code = decodeURIComponent(`${event.pathParameters.code}`);
 
-  return new Promise((resove, reject) => {
+  return new Promise((resolve, reject) => {
     // exchange auth code for access token with callback after exchagnge. Callback is arrow function
     
     oAuth2Client.getToken(code, (err, token) => {
@@ -78,6 +78,13 @@ module.exports.getAccessToken = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify(token),
+    };
+  })
+  .catch((err) => {
+    console.error(err);
+    return{
+      statusCode: 500,
+      body: JSON.stringify(err),
     };
   });
 };
