@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-
+// from the "Verify the Meet App" file
 const checkToken = async (accessToken) => {
     const result = await fetch (
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
