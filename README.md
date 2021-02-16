@@ -2,7 +2,7 @@
 
 React app built with CRA boiler-plate generator.
 
-Hosted on gitpages: https://ksflynn007.github.io/meet-app/
+Hosted on gitpages: https://KSFlynn007.github.io/meet-app/
 
 User Stoy Feature 1: As a user, I should be able to filter events by city so that I can see events that are applicable to me.
 
