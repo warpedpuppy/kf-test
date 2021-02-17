@@ -1,6 +1,21 @@
 import axios from 'axios';
 
 // from the "Verify the Meet App" file
+
+const getToken = async (code) => {
+    removeQuery();
+};
+
+const removeQuery = () => {
+    if (window.history.pushState && window.location.pathname) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.pushState("", "", newurl);
+    } else {
+        newurl = window.location.protocol + "//" + window.location.host;
+        window.history.pushState("", "", newurl);
+    }
+};
+
 const checkToken = async (accessToken) => {
     const result = await fetch (
         `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
@@ -30,8 +45,5 @@ const getAccessToken = async () => {
         return code && getToken(code);
     }
     return accessToken;
-    }
+    ;}
 
-const getToken = async (code) => {
-removeQuery();
-}
