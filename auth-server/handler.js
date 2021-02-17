@@ -1,6 +1,5 @@
 // where you implement functions
 const { google } = require("googleapis");
-const { resolve } = require("q");
 const OAuth2 = google.auth.OAuth2;
 const calendar = google.calendar("v3");
 
