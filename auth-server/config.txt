@@ -1,0 +1,8 @@
+in case swapping branches removes the config.json file again:
+
+{
+  "CLIENT_ID": "841717757727-88vckej4dd8ul7sd5u72c8fe47qb999i.apps.googleusercontent.com",
+  "PROJECT_ID": "meet-app-305001",
+  "CLIENT_SECRET": "0_L7E9YZBidmbVakLBcOWMOf",
+  "CALENDAR_ID": "fullstackwebdev@careerfoundry.com"
+}
