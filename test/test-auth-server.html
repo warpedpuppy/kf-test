@@ -62,28 +62,28 @@
         };
 
     // step 2:
-        // const codeValue = document.getElementById("code");
-        // const getAccessToken = document.getElementById("getToken");
-        // const accessTokenElement = document.getElementById("accessToken");
-        // // remove /{code} from end of URI, as we add the code into URI after:
-        // const getToken = "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/token";
+        const codeValue = document.getElementById("code");
+        const getAccessToken = document.getElementById("getToken");
+        const accessTokenElement = document.getElementById("accessToken");
+        // remove /{code} from end of URI, as we add the code into URI after:
+        const getToken = "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/token";
 
-        // getAccessToken.onclick = function() {
-        //     let code = codeValue.value;
+        getAccessToken.onclick = function() {
+            let code = codeValue.value;
 
-        //     // if auth code is not URL-encoded, then URL encode it:
-        //     if (decodeURIComponent(code) === code) {
-        //         code = encodeURIComponent(codeValue.code);
-        //     }
-        //     const getTokenRequest = getToken + "/" + code;
-        //     fetch(getTokenRequest)
-        //         .then(function (response) {
-        //             return response.json();
-        //         })
-        //         .then(function(json) {
-        //             accessTokenElement.innerText = JSON.stringify(json);
-        //         })
-        // }
+            // if auth code is not URL-encoded, then URL encode it:
+            if (decodeURIComponent(code) === code) {
+                code = encodeURIComponent(codeValue.code);
+            }
+            const getTokenRequest = getToken + "/" + code;
+            fetch(getTokenRequest)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    accessTokenElement.innerText = JSON.stringify(json);
+                })
+        }
     </script>
 </body>
 </html>
