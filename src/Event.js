@@ -38,13 +38,10 @@ class Event extends Component {
                 
                 {showDetails && (
                     <div className='event-expanded'>
-                        {/* ideally should be event.start.dateTime */}
-                        <p className='event-start'>{event.start}</p>
-                        {/* ideally should be event.end.dateTime */}
-                        <p className='event-end'>{event.end}</p>
+                        <p className='event-start'>{event.start.dateTime}</p>
+                        <p className='event-end'>{event.end.dateTime}</p>
                         <p className='event-description'>{event.description}</p>
-                        {/* ideally should be event.organizer.email */}
-                        <p className='event-organizer'>Get in touch with us about this event at: {event.organizer}</p>
+                        <p className='event-organizer'>Get in touch with us about this event at: {event.organizer.email}</p>
 
                     </div>
                 )}
