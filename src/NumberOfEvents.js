@@ -20,7 +20,7 @@ class NumberOfEvents extends Component {
         return(
             <div className='numberOfEvents'>
 
-                <label className='eventNumberLabel' for='eventNumber'>Number of events/page:</label>
+                <label className='eventNumberLabel'>Number of events/page:</label>
                 <input
                 type='number'
                 id='eventNumber'
