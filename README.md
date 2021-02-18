@@ -35,7 +35,7 @@ Scenario 1: An event element is collapsed by default
 
 Given the user has entered in (or left empty) search constraints
 When the user loads a list of events in that search
-Then the user should see the events in collapsed form (ie; name and date only)
+Then the user should see the events in collapsed form (ie; name and city only)
 
 Scenario 2: User can expand an event to see its details
 
