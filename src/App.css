@@ -86,7 +86,7 @@ input[type="number"] {
 }
 
 .event-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -94,7 +94,8 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
-.time-label {
+.time-label,
+.org-email {
   font-weight: 500;
 }
 

@@ -54,7 +54,7 @@ class Event extends Component {
                         <p className='event-start'><span class='time-label'>Starts @ </span>{this.formatStartTime()}</p>
                         <p className='event-end'><span class='time-label'>Ends @ </span>{this.formatEndTime()}</p>
                         <p className='event-description'>{event.description}</p>
-                        <p className='event-organizer'>Get in touch with us about this event at: {event.organizer.email}</p>
+                        <p className='event-organizer'>Get in touch with us about this event at: <span class='org-email'>{event.organizer.email}</span></p>
 
                     </div>
                 )}
