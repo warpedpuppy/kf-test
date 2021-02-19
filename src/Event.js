@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 
 class Event extends Component {
     state = {
@@ -13,6 +14,18 @@ class Event extends Component {
             this.setState({ showDetails: false})
         }
     };
+
+    formatStartTime = () => {
+        const time = this.props.event.start.dateTime;
+        const formattedStartTime = moment(time).format('dddd, MMMM, Do YYYY, h:MM a');
+        return <span className='start-dateTime'>{`${formattedStartTime}`}</span>
+    }
+
+    formatEndTime = () => {
+        const time = this.props.event.end.dateTime;
+        const formattedEndTime = moment(time).format('dddd, MMMM, Do YYYY, h:MM a');
+        return <span className='start-dateTime'>{`${formattedEndTime}`}</span>
+    }
 
     render() {
         const showDetails = this.state.showDetails;
@@ -38,8 +51,8 @@ class Event extends Component {
                 
                 {showDetails && (
                     <div className='event-expanded'>
-                        <p className='event-start'>{event.start.dateTime}</p>
-                        <p className='event-end'>{event.end.dateTime}</p>
+                        <p className='event-start'>{this.formatStartTime()}</p>
+                        <p className='event-end'>{this.formatEndTime()}</p>
                         <p className='event-description'>{event.description}</p>
                         <p className='event-organizer'>Get in touch with us about this event at: {event.organizer.email}</p>
 
