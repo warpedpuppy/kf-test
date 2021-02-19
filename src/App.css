@@ -94,6 +94,10 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
+.time-label {
+  font-weight: 500;
+}
+
 .numberOfEvents {
   width: 200px;
   margin: 20px auto;
