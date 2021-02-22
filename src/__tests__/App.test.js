@@ -88,6 +88,7 @@ describe('<App /> integration', () => {
         const eventObject = {target : { value: 1 }};
         NumberOfEventsWrapper.find('.eventNumber').simulate('change', eventObject);
         expect(NumberOfEventsWrapper.state('eventNumber')).toBe(1);
+        expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(null, 1);
         AppWrapper.unmount();
     })
     
