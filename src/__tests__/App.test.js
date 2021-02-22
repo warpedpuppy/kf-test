@@ -6,6 +6,7 @@ import CitySearch from '../CitySearch';
 import NumberofEvents from '../NumberOfEvents';
 import {mockData} from '../mock-data';
 import {extractLocations, getEvents} from '../api';
+import NumberOfEvents from '../NumberOfEvents';
 
 // unit testing
 describe('<App /> component', () => {
@@ -70,5 +71,24 @@ describe('<App /> integration', () => {
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
     });
+
+    test('App passes prop eventNumber as a prop to NumberofEvents', () => {
+        const AppWrapper = mount(<App />);
+        const appNumberOfEeventsState = AppWrapper.state('eventNumber');
+        expect(AppWrapper.find(NumberOfEvents).props().eventNumber).toEqual(appNumberOfEeventsState);
+        AppWrapper.unmount();
+    })
+
+    test('change list of events after user updates number', () => {
+        const AppWrapper = mount(<App />);
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        AppWrapper.instance().updateEvents = jest.fn();
+        AppWrapper.instance().forceUpdate();
+        NumberOfEventsWrapper.setState({ eventNumber: 32 });
+        const eventObject = {target : { value: 1 }};
+        NumberOfEventsWrapper.find('.eventNumber').simulate('change', eventObject);
+        expect(NumberOfEventsWrapper.state('eventNumber')).toBe(1);
+        AppWrapper.unmount();
+    })
     
 })
