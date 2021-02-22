@@ -1,6 +1,7 @@
 import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
+import Config from './config';
 
 export const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
@@ -11,6 +12,7 @@ export const extractLocations = (events) => {
 export const getEvents = async () => {
   NProgress.start();
 
+  // local host will only show mockData, all other endpoints (gh-pages) will show full api
   if (window.location.href.startsWith('http://localhost')) {
     NProgress.done();
     return mockData;
@@ -20,13 +22,12 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    // eslint-disable-next-line no-useless-concat
-    const url = "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/get-events" + '/' + token;
+    const url = Config.GET_EVENTS + token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
-      localStorage.setItem("lastEvents", JSON.stringify(result.data));
-      localStorage.setItem("locations", JSON.stringify(locations));
+      localStorage.setItem('lastEvents', JSON.stringify(result.data));
+      localStorage.setItem('locations', JSON.stringify(locations));
     }
     NProgress.done();
     return result.data.events;
@@ -37,13 +38,13 @@ const removeQuery = () => {
   if (window.history.pushState && window.location.pathname) {
     var newurl =
       window.location.protocol +
-      "//" +
+      '//' +
       window.location.host +
       window.location.pathname;
-    window.history.pushState("", "", newurl);
+    window.history.pushState('', '', newurl);
   } else {
-    newurl = window.location.protocol + "//" + window.location.host;
-    window.history.pushState("", "", newurl);
+    newurl = window.location.protocol + '//' + window.location.host;
+    window.history.pushState('', '', newurl);
   }
 };
 
@@ -52,13 +53,11 @@ export const getAccessToken = async () => {
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
-    await localStorage.removeItem("access_token");
+    await localStorage.removeItem('access_token');
     const searchParams = new URLSearchParams(window.location.search);
-    const code = await searchParams.get("code");
+    const code = await searchParams.get('code');
     if (!code) {
-      const results = await axios.get(
-        "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/get-auth-url"
-      );
+      const results = await axios.get(Config.GET_AUTH);
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
     }
@@ -69,7 +68,7 @@ export const getAccessToken = async () => {
 
 const checkToken = async (accessToken) => {
   const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+    `${Config.GOOGLE_API}access_token=${accessToken}`
   )
     .then((res) => res.json())
     .catch((error) => error.json());
@@ -80,15 +79,14 @@ const checkToken = async (accessToken) => {
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    // eslint-disable-next-line no-useless-concat
-    "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/token" + '/' + encodeCode
+    Config.GET_TOKEN + encodeCode
   )
     .then((res) => {
       return res.json();
     })
     .catch((error) => error);
 
-  access_token && localStorage.setItem("access_token", access_token);
+  access_token && localStorage.setItem('access_token', access_token);
 
   return access_token;
 };
