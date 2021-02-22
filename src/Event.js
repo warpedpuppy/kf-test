@@ -39,12 +39,12 @@ class Event extends Component {
                     <p className='event-location'>{event.location}</p>
                     {!showDetails && (
                         <button className='details-btn' onClick={this.handleShowDetails}>
-                            Expand This Event
+                            See More
                         </button>
                     )}
                     {showDetails && (
                         <button className='details-btn' onClick={this.handleShowDetails}>
-                            Collapse This Event
+                            See Less
                         </button>
                     )}
                 </div>

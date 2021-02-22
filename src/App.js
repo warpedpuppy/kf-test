@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Nav, Navbar} from 'react-bootstrap';
 import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
@@ -61,6 +62,19 @@ class App extends Component {
   render() {
     return(
       <div className='App'>
+
+        <Navbar variant='dark'  expand='sm' fixed='top' className='color-nav'>
+          <Navbar.Brand className='brand' href='https://ksflynn007.github.io/meet-app/'>
+            Code Hub
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+          <Navbar.Collapse>
+            <Nav >
+              <p class='header-welcome'>Welcome to the Code Hub, please select from a city below to find an event:</p>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+
         <CitySearch 
           locations={this.state.locations} 
           updateEvents={this.updateEvents}

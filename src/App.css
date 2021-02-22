@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue);
+@import url(bootstrap/dist/css/bootstrap.min.css);
+
+/* pallete color: https://colorhunt.co/palette/93463 */
+
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -6,6 +11,26 @@
 
 .App * {
   box-sizing: border-box;
+}
+
+body {
+  padding-top: 100px;
+  background-color: #171313;
+}
+
+.color-nav {
+  background-color: #72277a;
+}
+
+.brand {
+  font-family: "Bebas Neue", cursive;
+  font-size: 40px;
+}
+
+.header-welcome {
+  color: white;
+  align-self: center;
+  font-size: 14px;
 }
 
 ul {
@@ -55,7 +80,7 @@ input[type="number"] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #f5eeee;
   cursor: default;
 }
 
@@ -65,22 +90,30 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #ea21a2;
+}
+
+.eventNumberLabel {
+  font-family: "Bebas Neue", cursive;
+  color: white;
 }
 
 /* event start */
 
+.EventList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 15px;
+}
+
 .Event {
   padding: 10px 10px 35px;
-  margin-bottom: 20px;
   text-align: left;
   border: 1px solid black;
   border-radius: 4px;
   position: relative;
-  background-color: #bcdcdb;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  background-color: #f5eeee;
 }
 
 .details-btn {
@@ -88,6 +121,16 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+  font-family: "Bebas Neue", cursive;
+  margin-bottom: 16px;
+  background-color: #72277a;
+  color: white;
+}
+
+.details-btn:hover {
+  background-color: #ea21a2;
+  color: black;
+  grid-column-start: 3;
 }
 
 .event-name {
@@ -102,29 +145,14 @@ input[type="number"] {
 .time-label,
 .org-email {
   font-weight: 500;
+  color: #72277a;
+  color: #ea21a2;
 }
 
 .numberOfEvents {
   width: 200px;
   margin: 20px auto;
   text-align: center;
-}
-
-.button-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  padding: 20px;
-  font-family: sans-serif;
-}
-
-.btn-text {
-  float: right;
-  margin: 11px 11px 0 0;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  font-family: "Roboto";
 }
 
 @media only screen and (min-width: 992px) {
@@ -136,5 +164,17 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 700px) {
+  .EventList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .EventList {
+    grid-template-columns: 1fr;
   }
 }
