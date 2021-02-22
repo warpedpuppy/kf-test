@@ -41,7 +41,7 @@ class CitySearch extends Component {
         />
 
 {/* if showSuggestions is true, list is visable, style won't have display: none, so list won't become visible */}
-        <ul className="suggestions" style={this.state.showSuggestions ? {}: {display: 'none'}}>
+        <ul className='suggestions' style={this.state.showSuggestions ? {}: {display: 'none'}}>
           {this.state.suggestions.map((suggestion) => (
             <li 
             key={suggestion}
