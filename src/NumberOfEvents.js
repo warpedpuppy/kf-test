@@ -4,7 +4,7 @@ class NumberOfEvents extends Component {
 
     state = {
         // default number of events
-        eventNumber: 32,
+        eventNumber: 12,
     };
 
     handleInputChanged = (event) => {

@@ -25,16 +25,16 @@ describe('<NumberOfEvents /> component', () => {
         expect(NumberWrapper.find('.eventNumber')).toHaveLength(1);
     })
 
-    test('renders default number (32) input correctly', () => {
+    test('renders default number (12) input correctly', () => {
         const eventNumber = NumberWrapper.state('eventNumber');
         expect(NumberWrapper.find('.eventNumber').prop('value')).toBe(eventNumber);
     })
 
     test('render entering new number/page value changes state', () => {
-        NumberWrapper.setState({eventNumber: '32'});
+        NumberWrapper.setState({eventNumber: '12'});
         // target is what's entered into input
-        const newNumber = { target: {value: 12}};
+        const newNumber = { target: {value: 6}};
         NumberWrapper.find('.eventNumber').simulate('change', newNumber);
-        expect(NumberWrapper.state('eventNumber')).toBe(12);
+        expect(NumberWrapper.state('eventNumber')).toBe(6);
     })
 })
