@@ -49,7 +49,7 @@ const removeQuery = () => {
 };
 
 export const getAccessToken = async () => {
-  const accessToken = localStorage.getItem('access_token');
+  const accessToken = await localStorage.getItem('access_token');
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
@@ -66,7 +66,7 @@ export const getAccessToken = async () => {
   return accessToken;
 }
 
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `${Config.GOOGLE_API}access_token=${accessToken}`
   )
@@ -77,6 +77,7 @@ const checkToken = async (accessToken) => {
 }
 
 const getToken = async (code) => {
+  removeQuery();
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
     Config.GET_TOKEN + encodeCode

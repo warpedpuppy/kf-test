@@ -4,17 +4,21 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { extractLocations, getEvents } from './api';
+import { extractLocations, getEvents, checkToken } from './api';
 import './nprogress.css';
+import Login from './Login';
 
 
 class App extends Component {
-
-  state = {
-    events: [],
-    locations: [],
-    numberOfEvents: 12,
-    currentLocation: 'all'
+  constructor() {
+    super()
+    this.state = {
+      events: [],
+      locations: [],
+      numberOfEvents: 12,
+      currentLocation: 'all',
+      tokenCheck: false
+    }
   }
 
   updateEvents = (location, eventCount) => {
@@ -46,7 +50,24 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    // google verification PDF task
+    const accessToken = localStorage.getItem('access_token');
+    const validToken = accessToken !== null 
+      ? await checkToken(accessToken)
+      : false;
+    this.setState({ tokenCheck: validToken });
+    if(validToken === true) 
+      this.updateEvents();
+      const searchParams = new URLSearchParams(window.location.search);
+      const code = searchParams.get('code');
+    this.mounted = true;
+    if (code && this.mounted === true && validToken === false){
+      this.setState({ tokenCheck: true });
+      this.updateEvents()
+    }
+
+
     this.mounted = true;
     getEvents().then((events) => {
       if(this.mounted) {
@@ -60,9 +81,14 @@ class App extends Component {
   }
 
   render() {
-    return(
-      <div className='App'>
+    let {tokenCheck} = this.state;
 
+    return {tokenCheck} === false ? (
+      <div className="App">
+        <Login />
+      </div>
+    ) : (
+      <div className='App'>
         <Navbar variant='dark'  expand='sm' fixed='top' className='color-nav'>
           <Navbar.Brand className='brand' href='https://ksflynn007.github.io/meet-app/'>
             Code Hub
@@ -87,7 +113,6 @@ class App extends Component {
       </div>
     )
   };
-
 }
 
 export default App;
