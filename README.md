@@ -55,11 +55,11 @@ As a user, I should be able to change the number of events listed in a search so
 
 FEATURE 3: SPECIFY NUMBER OF EVENTS
 
-Scenario 1: When user hasn’t specified a number, 32 is the default number
+Scenario 1: When user hasn’t specified a number, 12 is the default number
 
 Given the user has selected their search constraints (or left them null) for events
 When the user loads their events list without changing any default settings
-Then the user will see no more than 32 events at a time in the list
+Then the user will see no more than 12 events at a time in the list
 
 Scenario 2: User can change the number of events they want to see
 
