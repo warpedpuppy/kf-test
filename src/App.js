@@ -70,7 +70,7 @@ class App extends Component {
           <Navbar.Toggle aria-controls='basic-navbar-nav'/>
           <Navbar.Collapse>
             <Nav >
-              <p class='header-welcome'>Welcome to the Code Hub, please select from a city below to find an event:</p>
+              <p className='header-welcome'>Welcome to the Code Hub, please select from a city below to find an event:</p>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
