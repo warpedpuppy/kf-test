@@ -89,14 +89,17 @@ class App extends Component {
       </div>
     ) : (
       <div className='App'>
-        <Navbar variant='dark'  expand='sm' fixed='top' className='color-nav'>
+        <Navbar variant='dark'  expand='md' fixed='top' className='color-nav'>
           <Navbar.Brand className='brand' href='https://ksflynn007.github.io/meet-app/'>
             Code Hub
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav'/>
           <Navbar.Collapse>
-            <Nav >
-              <p className='header-welcome'>Welcome to the Code Hub, please select from a city below to find an event:</p>
+            <Nav>
+              <Nav.Item>
+                <Nav.Link className='justify-content-end' href='https://ksflynn007.github.io/meet-app/privacy-policy.html'>Privacy Policy</Nav.Link>
+              </Nav.Item>
+              <Nav.Item className='header-welcome'>Welcome to the Code Hub, please select from a city below to find an event:</Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
