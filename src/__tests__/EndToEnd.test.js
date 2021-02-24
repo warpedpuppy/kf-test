@@ -1,7 +1,7 @@
 
 import puppeteer from 'puppeteer';
 import Config from '../config';
-import { mockData } from '../mock-data';
+// import { mockData } from '../mock-data';
  // no need for enzyme because the browser is what renders React components
 
 describe('show/hide an event details', () => {
