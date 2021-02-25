@@ -49,7 +49,7 @@ const removeQuery = () => {
 };
 
 export const getAccessToken = async () => {
-  const accessToken = await localStorage.getItem('access_token');
+  const accessToken = localStorage.getItem('access_token');
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
   if (!accessToken || tokenCheck.error) {
