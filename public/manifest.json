@@ -1,5 +1,6 @@
 {
   "name": "Meet App",
+  "short_name": "Meet App",
   "icons": [
     {
       "src": "img/event-icon.png",
@@ -22,6 +23,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#72277a",
+  "background_color": "#171313"
 }
