@@ -59,7 +59,6 @@
         const resultElement = document.getElementById("result");
         const resultLink = document.getElementById("authURL");
         // Replace this with your own endpoint
-        // const getAuthURL = "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/get-auth-url";
         const getAuthURL = 'https://ndtbfpup03.execute-api.ca-central-1.amazonaws.com/dev/api/get-auth-url';
 
         getURLElement.onclick = function () {
@@ -83,7 +82,6 @@
         const getAccessToken = document.getElementById("getToken");
         const accessTokenElement = document.getElementById("accessToken");
         // remove /{code} as the real code is added on later:
-        // const getToken = "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/token";
         const getToken = 'https://ndtbfpup03.execute-api.ca-central-1.amazonaws.com/dev/api/token';
 
         getAccessToken.onclick = function () {
@@ -108,7 +106,6 @@
     const getEvents = document.getElementById("getEvents");
     const events = document.getElementById("events");
     // remove /{access_token} from URI to be added in after:
-    // const getCalendarEvents = "https://xixfiq7och.execute-api.ca-central-1.amazonaws.com/dev/api/get-events";
     const getCalendarEvents = 'https://ndtbfpup03.execute-api.ca-central-1.amazonaws.com/dev/api/get-events';
 
     getEvents.onclick = function () {
