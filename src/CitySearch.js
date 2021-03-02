@@ -24,8 +24,8 @@ class CitySearch extends Component {
     } else {
       return this.setState({
         query:value,
-        suggestions: [],
-        showSuggestions: false,
+        suggestions,
+        // showSuggestions: false,
         infoText: ''
       });
     }
