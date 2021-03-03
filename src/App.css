@@ -156,14 +156,6 @@ input[type="number"] {
 
 /* chart start */
 
-.recharts-wrapper {
-  margin: 0 auto;
-}
-
-line {
-  color: white;
-}
-
 text {
   font-size: 20px;
   font-weight: 500;
@@ -176,6 +168,7 @@ text {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 15px;
+  margin-top: 30px;
 }
 
 .Event {
