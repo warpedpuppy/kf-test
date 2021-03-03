@@ -21,12 +21,13 @@ export const getEvents = async () => {
   // offline ability to load old data
   if (!navigator.onLine) {
     const storedEvents = localStorage.getItem('lastEvents');
-    const storedLocations = localStorage.getItem('locations');
+    // const storedLocations = localStorage.getItem('locations');
     NProgress.done();
 
     return {
       events: JSON.parse(storedEvents).events,
-      locations: JSON.parse(storedLocations)
+      // locations: JSON.parse(storedLocations)
+      locations: extractLocations(JSON.parse(storedEvents).events)
     };
   }
 
