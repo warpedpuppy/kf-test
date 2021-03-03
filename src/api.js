@@ -18,12 +18,15 @@ export const getEvents = async () => {
     return mockData;
   }
 
+  // offline ability to load old data
   if (!navigator.onLine) {
-    const events = localStorage.getItem("lastEvents");
-    NProgress.done() ;
+    const storedEvents = localStorage.getItem('lastEvents');
+    const storedLocations = localStorage.getItem('locations');
+    NProgress.done();
+
     return {
-      events: JSON.parse(events).events,
-      locations: extractLocations(JSON.parse(events).events)
+      events: JSON.parse(storedEvents).events,
+      locations: JSON.parse(storedLocations)
     };
   }
 
