@@ -7,6 +7,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents, checkToken } from './api';
 import './nprogress.css';
 import Login from './Login';
+import { WarningAlert } from './Alert';
 
 
 class App extends Component {
@@ -17,11 +18,24 @@ class App extends Component {
       locations: [],
       numberOfEvents: 12,
       currentLocation: 'all',
-      tokenCheck: false
+      tokenCheck: false,
+      warningText: ''
     }
   }
 
   updateEvents = (location, eventCount) => {
+
+    // offline warning
+    if(!navigator.onLine) {
+      this.setState({
+        warningText: 'You are offline and using old search results, the events loaded may not be the most up to date!'
+      });
+    } else {
+      this.setState({
+        warningText: ''
+      })
+    }
+
     const {currentLocation, numberOfEvents} = this.state;
     if (location) {
       getEvents().then((events) => {
@@ -103,6 +117,8 @@ class App extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+
+        <WarningAlert text={this.state.warningText}/>
 
         <CitySearch 
           locations={this.state.locations} 
