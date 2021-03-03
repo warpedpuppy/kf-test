@@ -163,7 +163,7 @@ class App extends Component {
         
         <div className='data-vis-wrapper'>
           <div className='charts-collapsed'>
-          <p className='chart-message'>Your search results at a glance:</p>
+          <p>Your search results at a glance:</p>
           {!showCharts && (
             <button className='charts-btn' onClick={this.handleShowCharts}>
               See charts
