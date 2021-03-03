@@ -151,6 +151,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
           />
           
+          <div className='data-vis-wrapper'>
           <EventGenre events={events} />
 
           <ResponsiveContainer height={400}>
@@ -164,6 +165,7 @@ class App extends Component {
             <Scatter data={this.getData()} fill='#ea21a2' />
           </ScatterChart>
           </ResponsiveContainer>
+          </div>
 
 
         <EventList events={events}/>

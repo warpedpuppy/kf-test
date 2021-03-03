@@ -9,7 +9,7 @@ const EventGenre = ({events}) => {
     }, [events]);
 
     const getData = () => {
-        const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
+        const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
         const data = genres.map((genre) => {
             const value = events.filter(({summary}) => 
             summary.split(' ').includes(genre)
@@ -19,7 +19,7 @@ const EventGenre = ({events}) => {
         return data;
     };
 
-    const COLORS = ["#EB9021", "#EB2821", "#EA21A2", "#A721EB", "#3F21EB"];
+    const COLORS = ['#EB9021', '#EB2821', '#EA21A2', '#A721EB', '#1f7eea']; 
 
     return(
         <ResponsiveContainer height={400}>
@@ -29,8 +29,7 @@ const EventGenre = ({events}) => {
                     cx='50%'
                     cy='50%'
                     labelLine={false}
-                    outerRadius={100}
-                    fill='#8884d8'
+                    outerRadius={80}
                     dataKey='value'
                     label={({ name, percent }) =>
                         `${name} ${(percent * 100).toFixed(0)}%`
