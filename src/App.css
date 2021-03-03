@@ -161,6 +161,10 @@ text {
   font-weight: 500;
 }
 
+.recharts-pie {
+  margin: 0 auto;
+}
+
 /* event start */
 
 .EventList {
