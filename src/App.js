@@ -145,7 +145,7 @@ class App extends Component {
               <Nav.Item>
                 <Nav.Link className='justify-content-end' href='https://ksflynn007.github.io/meet-app/privacy-policy.html'>Privacy Policy</Nav.Link>
               </Nav.Item>
-              <Nav.Item className='header-welcome'>Welcome to the Code Hub, please select from a city below to find an event:</Nav.Item>
+              <Nav.Item className='header-welcome'>Welcome to the Code Hub, please choose a city below to find an event:</Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
