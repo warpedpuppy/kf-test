@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const EventGenre = ({events}) => {
     const [data, setData] = useState([]);
@@ -21,7 +21,8 @@ const EventGenre = ({events}) => {
 
     return(
         <ResponsiveContainer height={400}>
-            <PieChart height={250} width={730}>
+            <PieChart height={400}>
+                <Legend align='center' verticalAlign='top' height={36} iconSize='20' iconType='circle'/>
                 <Pie
                     data={data}
                     cx='50%'
@@ -29,8 +30,8 @@ const EventGenre = ({events}) => {
                     labelLine={false}
                     outerRadius={80}
                     dataKey='value'
-                    label={({ name, percent }) =>
-                        `${name} ${(percent * 100).toFixed(0)}%`
+                    label={({ percent }) =>
+                        `${(percent * 100).toFixed(0)}%`
                     }
                 >
                     {data.map((entry, index) => (

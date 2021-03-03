@@ -29,7 +29,8 @@ class App extends Component {
       numberOfEvents: 12,
       currentLocation: 'all',
       tokenCheck: false,
-      warningText: ''
+      warningText: '',
+      showCharts: true
     }
   }
 
@@ -113,11 +114,20 @@ class App extends Component {
     })
     return data;
   }
-  
+
+  handleShowCharts = () => {
+    if(this.state.showCharts === false){
+      this.setState({showCharts: true});
+    } else {
+      this.setState({showCharts: false})
+    }
+  };
+
 
   render() {
     let {tokenCheck} = this.state;
     const {locations, numberOfEvents, events} = this.state;
+    const showCharts = this.state.showCharts;
 
     return {tokenCheck} === false ? (
       <div className='App'>
@@ -150,9 +160,25 @@ class App extends Component {
           numberOfEvents={numberOfEvents}
           updateEvents={this.updateEvents}
           />
-          
-          <div className='data-vis-wrapper'>
-          <EventGenre events={events} />
+        
+        <div className='data-vis-wrapper'>
+          <div className='charts-collapsed'>
+          <p className='chart-message'>Your search results at a glance:</p>
+          {!showCharts && (
+            <button className='charts-btn' onClick={this.handleShowCharts}>
+              See charts
+            </button>
+          )}
+          {showCharts && (
+            <button className='charts-btn' onClick={this.handleShowCharts}>
+              Hide charts
+            </button>
+          )}
+          </div>
+
+          {showCharts && (
+            <div className='charts-expanded'>
+            <EventGenre events={events} />
 
           <ResponsiveContainer height={400}>
           <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
@@ -165,7 +191,10 @@ class App extends Component {
             <Scatter data={this.getData()} fill='#ea21a2' />
           </ScatterChart>
           </ResponsiveContainer>
-          </div>
+
+            </div>
+          )}
+        </div>
 
 
         <EventList events={events}/>

@@ -156,6 +156,34 @@ input[type="number"] {
 
 /* chart start */
 
+.data-vis-wrapper {
+  background-color: #201b1b;
+  border-radius: 7px;
+}
+
+.charts-collapsed {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-vis-wrapper p {
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  margin: 0;
+}
+
+.charts-btn {
+  padding: 5px 10px;
+  font-family: "Bebas Neue", cursive;
+  width: fit-content;
+}
+
+text.recharts-text.recharts-pie-label-text {
+  padding: 20px;
+}
+
 text {
   font-size: 20px;
   font-weight: 500;
@@ -175,7 +203,7 @@ text {
   padding: 10px 10px 35px;
   text-align: left;
   border: 1px solid black;
-  border-radius: 4px;
+  border-radius: 7px;
   position: relative;
   background-color: #f5eeee;
 }
@@ -231,7 +259,7 @@ text {
   }
 }
 
-@media (min-width: 400px) and (max-width: 1024px) {
+@media (min-width: 450px) and (max-width: 1024px) {
   .EventList {
     grid-template-columns: 1fr 1fr;
   }
