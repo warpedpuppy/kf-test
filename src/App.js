@@ -8,6 +8,15 @@ import { extractLocations, getEvents, checkToken } from './api';
 import './nprogress.css';
 import Login from './Login';
 import { WarningAlert } from './Alert';
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer
+} from 'recharts';
 
 
 class App extends Component {
@@ -94,11 +103,22 @@ class App extends Component {
     this.mounted = false;
   }
 
+  getData = () => {
+    const {locations, events} = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(',').shift()
+      return {city, number};
+    })
+    return data;
+  }
+
   render() {
     let {tokenCheck} = this.state;
+    const {locations, numberOfEvents, events} = this.state;
 
     return {tokenCheck} === false ? (
-      <div className="App">
+      <div className='App'>
         <Login />
       </div>
     ) : (
@@ -121,14 +141,27 @@ class App extends Component {
         <WarningAlert text={this.state.warningText}/>
 
         <CitySearch 
-          locations={this.state.locations} 
+          locations={locations} 
           updateEvents={this.updateEvents}
           />
         <NumberOfEvents 
-          numberOfEvents={this.state.numberOfEvents}
+          numberOfEvents={numberOfEvents}
           updateEvents={this.updateEvents}
           />
-        <EventList events={this.state.events}/>
+
+        <ResponsiveContainer height={400}>
+        <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+          <CartesianGrid strokeDasharray='3 3' />
+
+          <XAxis type='category' dataKey='city' name='city'/>
+          <YAxis type='number' dataKey='number' name='number of events' allowDecimals={false}/>
+
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter data={this.getData()} fill='#ea21a2' />
+        </ScatterChart>
+        </ResponsiveContainer>
+
+        <EventList events={events}/>
       </div>
     )
   };
