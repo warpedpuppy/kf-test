@@ -28,16 +28,16 @@ export const getEvents = async () => {
   }
 
   // offline ability to load old data
-  if (!navigator.onLine && !window.location.href.startsWith('http://localhost')) {
-    const storedEvents = localStorage.getItem('lastEvents');
-    const storedLocations = localStorage.getItem('locations');
-    NProgress.done();
+  // if (!navigator.onLine && !window.location.href.startsWith('http://localhost')) {
+  //   const storedEvents = localStorage.getItem('lastEvents');
+  //   const storedLocations = localStorage.getItem('locations');
+  //   NProgress.done();
 
-    return {
-      events: JSON.parse(storedEvents).events,
-      locations: JSON.parse(storedLocations)
-    };
-  }
+  //   return {
+  //     events: JSON.parse(storedEvents).events,
+  //     locations: JSON.parse(storedLocations)
+  //   };
+  // }
 
   if (!navigator.onLine) {
     console.log("offline!")
