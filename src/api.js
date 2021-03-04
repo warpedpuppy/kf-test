@@ -2,6 +2,14 @@ import { mockData } from './mock-data';
 import axios from 'axios';
 import NProgress from 'nprogress';
 import Config from './config';
+import lastEvents from './lastEvents.json';
+
+function setTest () {
+    const locationsX = ["Santiago, Santiago Metropolitan Region, Chile","California, USA","Bangkok, Thailand","Berlin, Germany","Cape Town, South Africa","New York, NY, USA","Mumbai, Maharashtra, India","London, UK","Amsterdam, Netherlands","Dubai - United Arab Emirates","Toronto, ON, Canada","Tokyo, Japan","Nairobi, Kenya","Sydney NSW, Australia","Moscow, Russia"];
+  localStorage.setItem('lastEvents', JSON.stringify(lastEvents));
+  localStorage.setItem('locations', JSON.stringify(locationsX));
+}
+
 
 export const extractLocations = (events) => {
   var extractLocations = events.map((event) => event.location);
@@ -11,6 +19,7 @@ export const extractLocations = (events) => {
 
 export const getEvents = async () => {
   NProgress.start();
+
 
   // local host will only show mockData, all other endpoints (gh-pages) will show full api
   if (window.location.href.startsWith('http://localhost')) {
@@ -31,9 +40,10 @@ export const getEvents = async () => {
   // }
 
   if (!navigator.onLine) {
+    console.log("offline!")
     const storedEvents = localStorage.getItem("lastEvents");
     NProgress.done();
-    return JSON.parse(storedEvents).events
+    return JSON.parse(storedEvents).events;
   }
 
   const token = await getAccessToken();
