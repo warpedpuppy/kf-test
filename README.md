@@ -1,8 +1,32 @@
-# meet-app
+# meet-app/Code Club
 
-React app built with CRA boiler-plate generator.
+React app built with CRA PWA boiler-plate generator.
 
-Hosted on gitpages: https://KSFlynn007.github.io/meet-app/
+## available scripts
+
+In project director, you can run the following:
+
+### 'npm run start'
+
+To run the application locally [http://localhost:30000]. The local version uses mock-data.js for events, the fully deployed version is more extensive.
+
+### 'npm run deploy'
+
+After saving any commits to github, run this script to deploy the 'build' folder to gh-pages/live version [https://KSFlynn007.github.io/meet-app]
+
+### 'http-server'
+
+Within the directory's 'test' file, you can run the above script to test the access token process between AWS Lambda and Google Calendar API.
+
+### 'serverless deploy'
+
+Within the director's 'auth-server' file, you can run the above script to deploy any changes made to the AWS endpoints, through either handler.js or serverless.yml files.
+
+### 'serverless info'
+
+Within the director's 'auth-server' file, you can run the above script to check the existing AWS endpoints, no changes will be made.
+
+## User Stories
 
 User Stoy Feature 1: As a user, I should be able to filter events by city so that I can see events that are applicable to me.
 
