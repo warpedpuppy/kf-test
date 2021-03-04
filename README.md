@@ -2,17 +2,17 @@
 
 React app built with CRA PWA boiler-plate generator.
 
-## available scripts
+## Available Scripts
 
 In project director, you can run the following:
 
 ### 'npm run start'
 
-To run the application locally [http://localhost:30000]. The local version uses mock-data.js for events, the fully deployed version is more extensive.
+To run the application locally [http://localhost:30000](http://localhost:30000). The local version uses mock-data.js for events, the fully deployed version is more extensive.
 
 ### 'npm run deploy'
 
-After saving any commits to github, run this script to deploy the 'build' folder to gh-pages/live version [https://KSFlynn007.github.io/meet-app]
+After saving any commits to github, run this script to deploy the 'build' folder to gh-pages/live version [https://KSFlynn007.github.io/meet-app](gh-pages)
 
 ### 'http-server'
 
@@ -28,15 +28,19 @@ Within the director's 'auth-server' file, you can run the above script to check 
 
 ## User Stories
 
-User Stoy Feature 1: As a user, I should be able to filter events by city so that I can see events that are applicable to me.
+### User Story Feature 1:
 
-FEATURE 1: SEARCH FOR EVENTS BY CITY
+As a user, I should be able to filter events by city so that I can see events that are applicable to me.
+
+### FEATURE 1: SEARCH FOR EVENTS BY CITY
 
 Scenario 1: When user hasn't searched for a city, show upcoming events from all cities.
 
+```
 Given user hasn’t searched for any city
 When the user opens the app
 Then the user should see a list of all upcoming events
+```
 
 Scenario 2: User should see a list of suggestions when they search for a city.
 
@@ -50,10 +54,11 @@ Given the user was typing “Berlin” in the city textbox and the list of sugge
 When the user selects a city (e.g., “Berlin, Germany”) from the list
 Then their city should be changed to that city (i.e., “Berlin, Germany”) and the user should receive a list of upcoming events in that city
 
-User Story Feature 2:
+### User Story Feature 2:
+
 As a user, I should be able to toggle event’s details so that I can see either details for individual events or look at all events in a high-level view.
 
-FEATURE 2: SHOW/HIDE AN EVENT’S DETAILS
+### FEATURE 2: SHOW/HIDE AN EVENT’S DETAILS
 
 Scenario 1: An event element is collapsed by default
 
