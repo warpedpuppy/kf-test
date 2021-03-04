@@ -19,7 +19,7 @@ class CitySearch extends Component {
     if (suggestions.length === 0) {
       this.setState({
         query: value,
-        infoText: 'We cannot find the city you are looking for, please try another city.'
+        infoText: `Looks like we don't have any events in that city, try another!`
       });
     } else {
       return this.setState({

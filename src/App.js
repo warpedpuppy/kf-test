@@ -137,7 +137,7 @@ class App extends Component {
       <div className='App'>
         <Navbar variant='dark'  expand='md' fixed='top' className='color-nav'>
           <Navbar.Brand className='brand' href='https://ksflynn007.github.io/meet-app/'>
-            Code Hub
+            Code Club
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav'/>
           <Navbar.Collapse>
@@ -145,7 +145,7 @@ class App extends Component {
               <Nav.Item>
                 <Nav.Link className='justify-content-end' href='https://ksflynn007.github.io/meet-app/privacy-policy.html'>Privacy Policy</Nav.Link>
               </Nav.Item>
-              <Nav.Item className='header-welcome'>Welcome to the Code Hub, please choose a city below to find an event:</Nav.Item>
+              <Nav.Item className='header-welcome'>Welcome to the Code Club, please select a city below to find an event:</Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
