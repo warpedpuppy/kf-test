@@ -20,12 +20,14 @@ export const extractLocations = (events) => {
 export const getEvents = async () => {
   NProgress.start();
 
-
-  // local host will only show mockData, all other endpoints (gh-pages) will show full api
-  if (window.location.href.startsWith('http://localhost')) {
-    NProgress.done();
-    return mockData;
+  if (!localStorage.getItem('lastEvents')) {
+    setTest();
   }
+  // local host will only show mockData, all other endpoints (gh-pages) will show full api
+  // if (window.location.href.startsWith('http://localhost')) {
+  //   NProgress.done();
+  //   return mockData;
+  // }
 
   // offline ability to load old data
   // if (!navigator.onLine && !window.location.href.startsWith('http://localhost')) {
@@ -39,12 +41,12 @@ export const getEvents = async () => {
   //   };
   // }
 
-  if (!navigator.onLine) {
+  // if (!navigator.onLine) {
     console.log("offline!")
     const storedEvents = localStorage.getItem("lastEvents");
     NProgress.done();
     return JSON.parse(storedEvents).events;
-  }
+  // }
 
   const token = await getAccessToken();
 

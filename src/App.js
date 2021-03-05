@@ -75,7 +75,8 @@ class App extends Component {
     }
   }
 
-  async componentDidMount() {
+ componentDidMount =  async () => {
+    console.log("COMPONENT DID MOUNT -- APP JS")
     // google verification PDF task
     const accessToken = localStorage.getItem('access_token');
     const validToken = accessToken !== null 
@@ -96,7 +97,7 @@ class App extends Component {
     this.mounted = true;
     getEvents().then((events) => {
       if(this.mounted) {
-      this.setState({ events, locations: extractLocations(events) });
+      this.setState({ events, locations: extractLocations(events) }, () => console.log(this.state));
       }
     });
   }
